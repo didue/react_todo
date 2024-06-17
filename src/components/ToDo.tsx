@@ -2,9 +2,32 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Categories, IToDos, toDoState } from "./atoms";
 import styled from "styled-components";
 
-const Label = styled.span`
-    margin : 5px 15px;
+const ToDoItem = styled.li`
+    list-style: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
 `;
+const Label = styled.span`
+    margin : 5px;
+    width: 100%;
+`;
+const ActionButton = styled.button`
+    background-color : ${props => props.theme.bgColor};
+    color : ${props => props.theme.textColor};
+    border: 1px solid ${props => props.theme.textColor};
+    min-width: 85px;
+    height: 35px;
+    border-radius: 7px;
+    margin: 0px 5px;
+
+    &:hover{
+        color: ${props => props.theme.accentColor};
+        border: 1px solid ${props => props.theme.accentColor};
+        cursor: pointer;
+    }
+`;
+
 
 function ToDo({id, text, category}: IToDos) {
 
@@ -22,20 +45,24 @@ function ToDo({id, text, category}: IToDos) {
             ];
         })
     }
+    const onDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+    }
 
     return (
-        <li key={id}>
+        <ToDoItem key={id}>
             <Label>{text}</Label>
             {category != Categories["TO-DO"] && (
-                <button name={Categories["TO-DO"]+""}  onClick={onClick}>📌To-Do</button>
+                <ActionButton name={Categories["TO-DO"]+""}  onClick={onClick}>📌 To-Do</ActionButton>
             )}
             {category != Categories["DOING"] && (
-                <button name={Categories["DOING"]+""}  onClick={onClick}>🔥Doing</button>
+                <ActionButton name={Categories["DOING"]+""}  onClick={onClick}>🔥 Doing</ActionButton>
             )}
             {category != Categories["DONE"] && (
-                <button name={Categories["DONE"]+""} onClick={onClick}>✅Done!</button>
+                <ActionButton name={Categories["DONE"]+""} onClick={onClick}>✅ Done!</ActionButton>
             )}
-        </li>
+            <ActionButton onClick={onDelete}>🗑️ Remove</ActionButton>
+        </ToDoItem>
     );
 }
 

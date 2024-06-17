@@ -23,9 +23,9 @@ function TodoList() {
             <h1>NOMAD TO-DO LIST</h1>
             <hr />
             <select value={category} onInput={onInput}>
-                <option value={Categories["TO-DO"]}>To-Do</option>
-                <option value={Categories["DOING"]}>Doing</option>
-                <option value={Categories["DONE"]}>Done</option>
+                <option value={Categories["TO-DO"]}>📌 To-Do</option>
+                <option value={Categories["DOING"]}>🔥 Doing</option>
+                <option value={Categories["DONE"]}>✅ Done</option>
             </select>
             <CreateToDo />
             {toDos?.map(todo => <ToDo key={todo.id} {...todo} />)}

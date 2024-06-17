@@ -23,7 +23,7 @@ const Input = styled.input`
     padding: 10px;
 `;
 
-const Button = styled.button`
+const AddButton = styled.button`
     min-width: 80px;
     height: 100%;
     margin-left: 10px;
@@ -58,7 +58,7 @@ function CreateToDo() {
                     })} 
                     type="text" placeholder="Write a To do"
                 />
-                <Button>+ Add</Button>
+                <AddButton>+ Add</AddButton>
             </Form>
         </FormWrapper>
     );
