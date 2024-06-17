@@ -26,14 +26,14 @@ function ToDo({id, text, category}: IToDos) {
     return (
         <li key={id}>
             <Label>{text}</Label>
-            {category !== Categories["TO-DO"] && (
-                <button name={Categories["TO-DO"] + ""}  onClick={onClick}>📌To-Do</button>
+            {category != Categories["TO-DO"] && (
+                <button name={Categories["TO-DO"]+""}  onClick={onClick}>📌To-Do</button>
             )}
-            {category !== Categories["DOING"] && (
-                <button name={Categories["DOING"] + ""}  onClick={onClick}>🔥Doing</button>
+            {category != Categories["DOING"] && (
+                <button name={Categories["DOING"]+""}  onClick={onClick}>🔥Doing</button>
             )}
-            {category !== Categories["DONE"] && (
-                <button name={Categories["DONE"] + ""} onClick={onClick}>✅Done!</button>
+            {category != Categories["DONE"] && (
+                <button name={Categories["DONE"]+""} onClick={onClick}>✅Done!</button>
             )}
         </li>
     );
