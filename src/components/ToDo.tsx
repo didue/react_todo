@@ -16,7 +16,7 @@ const ActionButton = styled.button`
     background-color : ${props => props.theme.bgColor};
     color : ${props => props.theme.textColor};
     border: 1px solid ${props => props.theme.textColor};
-    min-width: 85px;
+    min-width: 86px;
     height: 35px;
     border-radius: 7px;
     margin: 0px 5px;
@@ -46,7 +46,14 @@ function ToDo({id, text, category}: IToDos) {
         })
     }
     const onDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
-
+        const { currentTarget : {name}} = e;
+        setTodos(oldTodos => {
+            const idx = oldTodos.findIndex(todo => todo.id === id);
+            const newTodo = [...oldTodos];
+            newTodo.splice(idx, 1);
+            
+            return newTodo;
+        });
     }
 
     return (
