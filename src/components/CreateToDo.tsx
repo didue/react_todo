@@ -6,16 +6,16 @@ import styled from "styled-components";
 
 const FormWrapper = styled.div`
     width : 100%;
-    margin: 20px 0px;
+    margin: 10px 0px;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
     height: 35px;
     display: flex;
     juistify-content : center;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
     width : 100%;
     height: 100%;
     border: 1px solid #888;
@@ -23,9 +23,10 @@ const Input = styled.input`
     padding: 10px;
 `;
 
-const AddButton = styled.button`
+export const AddButton = styled.button`
     min-width: 80px;
     height: 100%;
+    min-height: 35px;
     margin-left: 10px;
     border: none;
     border-radius : 7px;
@@ -54,11 +55,10 @@ function CreateToDo() {
             <Form onSubmit={handleSubmit(handleValid)}>
                 <Input {...register('toDo', {
                         required : "Please Write a To Do",
-
                     })} 
                     type="text" placeholder="Write a To do"
                 />
-                <AddButton>+ Add</AddButton>
+                <AddButton>✔️ Save</AddButton>
             </Form>
         </FormWrapper>
     );

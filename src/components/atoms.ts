@@ -8,6 +8,10 @@ export enum Categories {
     'DONE',
 }
 
+export interface ICategories {
+    category: Categories; 
+}
+
 export interface IToDos {
     text: string;           // todo, doing, done
     id: number | string;
